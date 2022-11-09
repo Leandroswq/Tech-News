@@ -1,10 +1,6 @@
 from tech_news.database import search_news
 from datetime import datetime
-
-
-def __get_title_and_url__(noticias):
-    response = [(noticia["title"], noticia["url"]) for noticia in noticias]
-    return response
+from tech_news.helpers.format_news import get_title_and_url
 
 
 # Requisito 6
@@ -12,7 +8,7 @@ def search_by_title(title):
     """Seu código deve vir aqui"""
     query = {"title": {"$regex": title, "$options": "i"}}
     noticias = search_news(query)
-    response = __get_title_and_url__(noticias)
+    response = get_title_and_url(noticias)
     return response
 
 
@@ -26,7 +22,7 @@ def search_by_date(date):
     date = date.strftime("%d/%m/%Y")
     query = {"timestamp": date}
     noticias = search_news(query)
-    response = __get_title_and_url__(noticias)
+    response = get_title_and_url(noticias)
     return response
 
 
@@ -35,7 +31,7 @@ def search_by_tag(tag):
     """Seu código deve vir aqui"""
     query = {"tags": {"$regex": tag, "$options": "i"}}
     noticias = search_news(query)
-    response = __get_title_and_url__(noticias)
+    response = get_title_and_url(noticias)
     return response
 
 
@@ -44,5 +40,5 @@ def search_by_category(category):
     """Seu código deve vir aqui"""
     query = {"category": {"$regex": category, "$options": "i"}}
     noticias = search_news(query)
-    response = __get_title_and_url__(noticias)
+    response = get_title_and_url(noticias)
     return response
