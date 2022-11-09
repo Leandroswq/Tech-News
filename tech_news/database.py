@@ -37,3 +37,9 @@ def search_news(query):
 
 def get_collection():
     return db.news
+
+
+def search_first__news_sorted(query, sort_query, qtd):
+    return list(
+        db.news.find(query).sort(sort_query[0], sort_query[1]).limit(qtd)
+    )
