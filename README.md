@@ -5,6 +5,7 @@ Esse projeto foi desenvolvido durante meus estudos em python. Ele possui o objet
 # Tecnologias utilizadas
 
 * Python
+* Mongodb
 * Extrair conteúdos de paginas html
 * Armazenar dados no banco de dados
 
@@ -39,6 +40,12 @@ Dependências de produção e desenvolvimento:
 ~~~
 pip install -r dev-requirements.txt
 ~~~
+
+# Variáveis de ambiente
+
+- DB_HOST: Host do banco de dados Mongodb
+
+- DB_PORT: Porta utilizada pelo banco de dados Mongodb
 
 # Como executar
 
