@@ -46,11 +46,8 @@ def scrape_noticia(html_content):
     response = {}
 
     selector = Selector(html_content)
-    links = selector.css("link")
-    for link in links:
-        if link.css("link::attr(rel)").get() == "canonical":
-            response["url"] = link.css("link::attr(href)").get()
-            break
+
+    response["url"] = (selector.css("link[rel=canonical]::attr(href)").get(),)
 
     summary = selector.css(".entry-content-wrap > .entry-content > p")
     response["summary"] = ("".join(summary[0].css("*::text").getall())).strip()
