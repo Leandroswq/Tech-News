@@ -81,6 +81,8 @@ def analyzer_menu():
     else:
         print("Opção inválida", file=sys.stderr)
 
+    return opcao
+
 
 if __name__ == "__main__":
     analyzer_menu()
